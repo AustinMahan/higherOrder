@@ -1,5 +1,5 @@
 // console.log("hello")
-console.log(any([9,10,4,11],isGreaterThan10));
+console.log(any([9,10,4,11,0],isGreaterThan10));
 console.log(suprise('Hi')('!'));
 console.log(filter([1,2,3,4,5],isOdd));
 console.log(sumTwoNumbers(6)(15));
@@ -55,15 +55,16 @@ function any(array,callBack){
   var isTrue = false
   for(var i = 0; i<array.length; i++){
     isTrue = callBack(array[i])
+    if(isTrue===true){
+      return true
+    }
   }
-  return isTrue
+  return false
 }
 
 function isGreaterThan10(num){
   if(num>10){
     return true
-  }else{
-    return false
   }
 }
 
